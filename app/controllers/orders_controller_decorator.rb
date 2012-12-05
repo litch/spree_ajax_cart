@@ -4,7 +4,6 @@ Spree::OrdersController.class_eval do
     @variant = Spree::Variant.find(params[:variant_id])
     
     @order.add_variant(@variant, 1)
-    flash[:notice] = "Added one #{@variant.name} to cart"
 
     respond_to do | format |
       format.js { render :action => 'edit' }  
@@ -16,7 +15,6 @@ Spree::OrdersController.class_eval do
     @variant = Spree::Variant.find(params[:variant_id])
     
     @order.add_variant(@variant, -1)
-    flash[:notice] = "Removed one #{@variant.name} from cart"
 
     respond_to do | format |
       format.js { render :action => 'edit' }  
