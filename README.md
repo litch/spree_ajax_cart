@@ -1,13 +1,9 @@
 Spree Ajax Cart
 =============
 
-This is a basic implementation of an Ajax shopping cart for Spree (tested on 0.40 and 0.50.99/edge). To install, add the extension to your Gemfile:
+This is a basic implementation of an Ajax shopping cart for Spree (tested on 1.2.2). To install, add the extension to your Gemfile:
 
-    gem 'spree_ajax_cart', :git => 'git://github.com/pogodan/spree_ajax_cart'
-
-And `bundle install`, then:
-
-    rake spree_ajax_cart:install:assets
+    gem 'spree_ajax_cart', :git => 'git://github.com/litch/spree_ajax_cart'
 
 Then to render an ajax cart from any view, simply:
 
@@ -24,7 +20,21 @@ Use the `add_to_cart` route to easy ajax links. Here's a simple ERB template tha
 
 Click one of the links and the cart will update
 
+Depends on a helper method that displays flash messages.  For a bootstrap view:
+    def flash_display
+        bootstrap_names = {:success => 'success', :error => 'error', :message => 'info', :notice => 'info'}
+    
+        response = ""
+        flash.each do |name, msg|
+            response = response + content_tag(:div, :class => "alert alert-#{bootstrap_names[name]}") do
+                ("" + msg.to_s + " <a class='close' data-dismiss='alert' href='#'>&times;</a>").html_safe
+            end
+        end
+        flash.discard
+        response
+    end
+
 Copyright
 -------------
 
-Copyright (c) 2011 Pogodan. See LICENSE.txt for further details.
+Copyright (c) 2012 litch. See LICENSE.txt for further details.
