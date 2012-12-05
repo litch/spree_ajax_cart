@@ -21,9 +21,9 @@ Use the `add_to_cart` route to easy ajax links. Here's a simple ERB template tha
 Click one of the links and the cart will update
 
 Depends on a helper method that displays flash messages.  For a bootstrap view:
+    
     def flash_display
         bootstrap_names = {:success => 'success', :error => 'error', :message => 'info', :notice => 'info'}
-    
         response = ""
         flash.each do |name, msg|
             response = response + content_tag(:div, :class => "alert alert-#{bootstrap_names[name]}") do
