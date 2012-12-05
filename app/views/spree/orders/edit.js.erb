@@ -2,6 +2,6 @@ var properties = {
 	color: 'red'
 };
 
-$("#success_error_messages").html('<%= escape_javascript raw(flash_display) %>')
-$("#link-to-cart").html('<%= escape_javascript link_to_cart %>')
-$("#product_<%= @variant.product.id %>_quantity").html('<%= quantity_in_cart(@variant.product) %>').pulse(properties, {pulses: 2});
+$("#success_error_messages").html('<%= escape_javascript raw(flash_display) %>');
+$("#link-to-cart").html('<%= escape_javascript link_to_cart %>');
+$("#product_<%= @variant.product.id %>_quantity").html('<%= quantity_in_cart(@variant.product) %>').fadeIn();
