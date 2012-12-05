@@ -1,4 +1,3 @@
 $("#success_error_messages").html('<%= escape_javascript raw(flash_display) %>')
-$("#ajax_cart").html("<%= escape_javascript render(:partial => 'ajax_form', :locals => {:order => @order}) %>");
 $("#link-to-cart").html('<%= escape_javascript link_to_cart %>')
 $("#product_<%= @variant.product.id %>_quantity").html('<%= quantity_in_cart(@variant.product) %>')
