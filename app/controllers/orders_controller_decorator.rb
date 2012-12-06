@@ -6,7 +6,7 @@ Spree::OrdersController.class_eval do
     @order.add_variant(@variant, 1)
 
     respond_to do | format |
-      format.js { render :action => 'edit' }  
+      format.js { render :action => 'edit.js.erb' }  
     end
   end
   
@@ -17,7 +17,7 @@ Spree::OrdersController.class_eval do
     @order.add_variant(@variant, -1)
 
     respond_to do | format |
-      format.js { render :action => 'edit' }  
+      format.js { render :action => 'edit.js.erb' }  
     end
   end
   
